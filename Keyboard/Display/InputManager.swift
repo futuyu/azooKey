@@ -567,7 +567,7 @@ final class InputManager {
 
     /// 特定の文字まで削除する
     ///  - returns: 削除した文字列
-    @MainActor func smoothDelete(to nexts: [Character] = ["、", "。", "！", "？", ".", ",", "．", "，", "\n"], requireSetResult: Bool = true) -> String {
+    @MainActor func smoothDelete(to nexts: [Character] = ["、", "。", "！", "？", "!", "?", ".", ",", "．", "，", "\n"], requireSetResult: Bool = true) -> String {
         // 選択状態ではオール削除になる
         if self.isSelected {
             let targetText = self.composingText.convertTarget
@@ -623,7 +623,7 @@ final class InputManager {
 
     /// テキストの進行方向に、特定の文字まで削除する
     /// 入力中はカーソルから右側を全部消す
-    @MainActor func smoothDeleteForward(to nexts: [Character] = ["、", "。", "！", "？", ".", ",", "．", "，", "\n"], requireSetResult: Bool = true) -> String {
+    @MainActor func smoothDeleteForward(to nexts: [Character] = ["、", "。", "！", "？", "!", "?", ".", ",", "．", "，", "\n"], requireSetResult: Bool = true) -> String {
         // 選択状態ではオール削除になる
         if self.isSelected {
             let targetText = self.composingText.convertTarget
@@ -673,7 +673,7 @@ final class InputManager {
     }
 
     /// テキストの進行方向と逆に、特定の文字までカーソルを動かす
-    @MainActor func smartMoveCursorBackward(to nexts: [Character] = ["、", "。", "！", "？", ".", ",", "．", "，", "\n"], requireSetResult: Bool = true) {
+    @MainActor func smartMoveCursorBackward(to nexts: [Character] = ["、", "。", "！", "？", "!", "?", ".", ",", "．", "，", "\n"], requireSetResult: Bool = true) {
         // 選択状態では左にカーソルを移動
         if isSelected {
             // 左にカーソルを動かす
@@ -709,7 +709,7 @@ final class InputManager {
     }
 
     /// テキストの進行方向に、特定の文字までカーソルを動かす
-    @MainActor func smartMoveCursorForward(to nexts: [Character] = ["、", "。", "！", "？", ".", ",", "．", "，", "\n"], requireSetResult: Bool = true) {
+    @MainActor func smartMoveCursorForward(to nexts: [Character] = ["、", "。", "！", "？", "!", "?", ".", ",", "．", "，", "\n"], requireSetResult: Bool = true) {
         // 選択状態では最も右にカーソルを移動
         if isSelected {
             self.displayedTextManager.moveCursor(count: 1)
